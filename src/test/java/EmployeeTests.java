@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import se.distansakademin.employees.Employee;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +28,7 @@ public class EmployeeTests {
 	}
 	
 	@ParameterizedTest
-	@CsvSource({"Linus", "John", "Alice"})
+	@ValueSource(strings = {"Linus", "John", "Alice"})
 	public void testConstructorSetName(String expected) {
 	employee.setName(expected);
 	var actual = employee.getName();
