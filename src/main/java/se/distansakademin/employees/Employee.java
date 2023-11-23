@@ -1,4 +1,4 @@
-package se.distansakademin;
+package se.distansakademin.employees;
 
 public class Employee extends Person {
 	
@@ -7,7 +7,7 @@ public class Employee extends Person {
 	
 	public Employee(String name) {
 		
-		this.name = name;
+		setName(name);
 	}
 	
 	public String getSound(){
@@ -25,6 +25,13 @@ public class Employee extends Person {
 		this.name = capitalizeFirstLetter(name);
 	}
 	
+	@Override
+	public String eatFood() {
+		
+		return "Nom nom nom!";
+		
+	}
+	
 	protected String capitalizeFirstLetter(String input){
 		String firstCharacter = input.substring(0 , 1).toUpperCase();
 		String rest =  input.substring(1);
@@ -32,10 +39,5 @@ public class Employee extends Person {
 		return firstCharacter + rest;
 	}
 	
-	@Override
-	public String eatFood() {
-		
-		return "Nom nom nom!";
-		
-	}
+	
 }

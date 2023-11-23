@@ -1,8 +1,8 @@
-package se.distansakademin;
+package se.distansakademin.employees;
 
-public class Developer extends Employee {
+public class Developer extends Employee implements ICanProgram {
 	
-	private String programmingLanguage;
+	private  String programmingLanguage;
 	
 
 	public Developer(String name, String programmingLanguage) {
@@ -22,4 +22,9 @@ public class Developer extends Employee {
 	}
 	
 	
+	@Override
+	public String program() {
+		
+		return name + " writes some " + programmingLanguage;
+	}
 }
