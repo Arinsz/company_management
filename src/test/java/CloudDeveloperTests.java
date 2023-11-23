@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import se.distansakademin.employees.CloudDeveloper;
 import se.distansakademin.Website;
 
@@ -20,9 +21,10 @@ public class CloudDeveloperTests {
 	}
 	
 	@ParameterizedTest
-	@CsvSource({"true", "false"})
+	@ValueSource(booleans = {true, false})
 	public void testFixWebsiteParameterized(boolean isWorking){
 		var website = new Website(isWorking);
+		
 		website.fix();
 		
 		var expected = true;
@@ -30,6 +32,8 @@ public class CloudDeveloperTests {
 		var actual = website.isWorking();
 		
 		assertEquals(expected, actual);
+		
+		
 	}
 	
 	

@@ -1,12 +1,17 @@
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import se.distansakademin.Utilities;
 
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UtilitiesTests {
+    
     @ParameterizedTest
     @ValueSource(ints = {1, 3, 7, 11, 711, -5, -51})
     public void testNumberIsOddTrue(int number) {
@@ -15,7 +20,20 @@ public class UtilitiesTests {
 
         assertEquals(expected, actual);
     }
-
+    
+    
+    @ParameterizedTest
+    @MethodSource("getOddNumbers")
+    public void testNumberIsOddTrueWithMethodSource(int number) {
+        assertTrue(Utilities.numberIsOdd(number), "Expected " + number + " to be odd");
+    }
+    
+    static Stream<Integer> getOddNumbers() {
+        return Stream.of(15, 3, 17, 23, 721, -3, -7);
+    }
+    
+    
+    
     @ParameterizedTest
     @ValueSource(ints = {2, 4, 6, 100, -8, -512})
     public void testNumberIsOddFalse(int number) {

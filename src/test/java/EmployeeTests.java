@@ -29,7 +29,7 @@ public class EmployeeTests {
 	
 	@ParameterizedTest
 	@ValueSource(strings = {"Linus", "John", "Alice"})
-	public void testConstructorSetName(String expected) {
+	public void testConstructorSetNameParameterized(String expected) {
 	employee.setName(expected);
 	var actual = employee.getName();
 	
@@ -45,7 +45,9 @@ public class EmployeeTests {
 		assertEquals(expected, actual);
 	}
 	
-	@Test
+	
+	
+	
 	void testEatFood() {
 		var expected = "Nom nom nom!";
 		var actual = employee.eatFood();
